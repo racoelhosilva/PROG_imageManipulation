@@ -52,7 +52,25 @@ Initial files are already provided and some of them mustn't (and needn't) be cha
   * XPM2.hpp: header file for class declaration (Interface)
   1. Opening an XPM2 file into an object of Image
   2. Save an Image object into an XPM2 file
-  
+
+## Testing Stuff
+
+After downloading the program, run  
+
+    > cd ProjectProg/
+    > make
+To generate the proper _runscript_ and _test_ files. These can later be recompiled after running _> make clean all_.
+#### Runscript
+
+    > ./runscript <filename>.txt [<filename>.txt ...]
+Is used to run one or more specific test scripts
+
+#### Test
+
+    > ./test [Color / Basic / <command>]
+Is used to run all test scripts related to Color, Basic I/O or a specific command.
+If no arguments are passed, it runs all of the test scripts.
+
 ## Useful Links
 * Project Description and Details: [ CLICK HERE ](https://moodle.up.pt/pluginfile.php/218459/mod_resource/content/11/index.html)
 
