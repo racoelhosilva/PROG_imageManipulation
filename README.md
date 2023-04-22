@@ -53,6 +53,27 @@ Initial files are already provided and some of them mustn't (and needn't) be cha
   1. Opening an XPM2 file into an object of Image
   2. Save an Image object into an XPM2 file
 
+## Working on the Project
+
+#### The stable branch should only be changed after implementation and approval of the changes in the code.
+When you are going to implement something new, make sure to start by pulling the stable branch and then working on a separate (experimental) branch, so that multiple people can tweak the code at the same time without conflicts.
+
+    > cd ProjectProg/
+    > git pull origin stable
+    > git checkout -b <your_branch_name>
+
+When you are done with the tweaking, commit your changes and generate a pull request for analysis.
+
+    > git add <filename of the tweaked files>
+    > git commit -m "<your message>"
+    > git push -u origin <your_branch_name>
+You can then refresh this github repo, see your changes and create the pull request.
+
+Note: after doing this merging, you should probably change your branch back to stable and delete that branch
+
+    > git checkout stable
+    > git branch -d <your_branch_name>
+
 ## Testing Stuff
 
 After downloading the program, run  
