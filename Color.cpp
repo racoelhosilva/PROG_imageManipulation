@@ -43,5 +43,7 @@ namespace prog {
         R = gray; G = gray; B = gray;
     }
 
-
+    bool Color::is_equal(Color& arg_color){
+        return (R == arg_color.R) && (G == arg_color.G) && (B == arg_color.B);
+    }
 }

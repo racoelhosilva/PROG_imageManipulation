@@ -38,12 +38,22 @@ namespace prog
       }
     }
   }
-  
+
   void Image::to_gray_scale(){
     for (int row = 0; row < H; row++){
       for (int col = 0; col < W; col++){
         (M[row][col]).to_gray_scale();
       }
     }
+  }
+
+  void Image::replace(Color initial_color, Color final_color){
+    for (int row = 0; row < H; row++){
+      for (int col = 0; col < W; col++){
+        if (M[row][col].is_equal(initial_color)){
+          M[row][col] = (final_color);
+        }
+      }
+    }    
   }
 }

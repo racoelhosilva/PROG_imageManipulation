@@ -57,7 +57,10 @@ namespace prog {
                 to_gray_scale();
                 continue;
             }
-
+            if (command == "replace"){
+                replace();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -90,5 +93,12 @@ namespace prog {
     void Script::to_gray_scale(){
         // Grayscales each pixel of the image
         image->to_gray_scale();
+    }
+
+    void Script::replace(){
+        // Replaces every pixel of the initial color by the final color
+        Color initial_color, final_color;
+        input >> initial_color >> final_color;
+        image->replace(initial_color, final_color);
     }
 }

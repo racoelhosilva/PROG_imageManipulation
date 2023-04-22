@@ -27,7 +27,7 @@ namespace prog
       // Helper functions for image manipulation
       void invert();
       void to_gray_scale();
-
+      bool is_equal(Color& arg_color);
   };
 }
 #endif

@@ -28,6 +28,7 @@ namespace prog
     // Image Manipulations
     void invert();
     void to_gray_scale();
+    void replace();
   };
 }
 #endif
