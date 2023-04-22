@@ -11,7 +11,7 @@ Initial files are already provided and some of them mustn't (and needn't) be cha
 
 ## Files to Change and To-Do List
 
-> **Color Class**
+### **Color Class**
   * Color.cpp: class implementation of Color.h
   * Color.hpp: header file for class declaration (Interface)
   1. Default Constructor
@@ -20,7 +20,7 @@ Initial files are already provided and some of them mustn't (and needn't) be cha
   4. Accessors for each attribute
   5. Mutators for each attribute
   6. ...
-> **Image Class**
+### **Image Class**
   * Image.cpp: class implementation of Image.h
   * Image.hpp: header file for class declaration (Interface)
   1. Constructor with (width, height, possible initial color)
@@ -29,7 +29,7 @@ Initial files are already provided and some of them mustn't (and needn't) be cha
   4. Mutator for a specific Color pixel (element)
   5. Accessor for a specific Color pixel (element)
   6. ...
-> **Script Class**
+### **Script Class**
   * Script.cpp: class implementation of Script.h
   * Script.hpp: header file for class declaration (Interface)
   1. ~~Constructor and Destructor~~
@@ -47,7 +47,7 @@ Initial files are already provided and some of them mustn't (and needn't) be cha
      2.  Rotate to the left
      3.  Rotate to the right
   6. Median Filter (advanced functionality)
-> **XPM2 Class (advanced functionality)**
+### **XPM2 Class (advanced functionality)**
   * XPM2.cpp: class implementation of Color.h
   * XPM2.hpp: header file for class declaration (Interface)
   1. Opening an XPM2 file into an object of Image
