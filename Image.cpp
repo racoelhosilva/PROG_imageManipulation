@@ -2,31 +2,32 @@
 
 namespace prog
 {
-  Image::Image(int w, int h, const Color &fill)
-  {
+  // Constructor
+  Image::Image(int w, int h, const Color &fill){
+    W = w; H = h;
+    M = matrix(H, row(W, fill));
   }
-  Image::~Image()
-  {
-  }
-  int Image::width() const
-  {
-    return -1;
-  }
-  int Image::height() const
-  {
-    return -1;
+  // Destructor
+  Image::~Image(){ 
+    // is it necessary??
   }
 
-  // TODO: remove this DUMMY_color variable once you have appropriate fields for representing image pixels.
-  Color DUMMY_color;
-
-  Color& Image::at(int x, int y)
-  {
-    return DUMMY_color;
+  // Size Accessors
+  int Image::width() const{
+    return W;
+  }
+  int Image::height() const{
+    return H;
   }
 
-  const Color& Image::at(int x, int y) const
-  {
-    return DUMMY_color;
+  // Pixel Accessor
+  const Color& Image::at(int x, int y) const{
+    return M[y][x];
   }
+
+  // Pixel Mutator
+  Color& Image::at(int x, int y){
+    return M[y][x];
+  }
+
 }
