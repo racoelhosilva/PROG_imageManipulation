@@ -1,35 +1,36 @@
 #include "Color.hpp"
 
 namespace prog {
+    // Constructors
     Color::Color() {
-
+        R = 0; G = 0; B = 0;
     }
     Color::Color(const Color& other) {
-
+        R = other.R; G = other.G; B = other.B;
     }
     Color::Color(rgb_value red, rgb_value green, rgb_value blue) {
-
+        R = red; G = green; B = blue;
     }
+
+    // Accessors
     rgb_value Color::red() const {
-        return 0;
+        return R;
     }
     rgb_value Color::green() const {
-        return 0;
+        return G;
     }
     rgb_value Color::blue() const {
-        return 0;
+        return B;
     }
 
-    // TODO: remove this DUMMY variable once you have appropriate fields for representing colors.
-    rgb_value DUMMY_rgb_value = 0; 
-
+    // Mutators
     rgb_value& Color::red()  {
-        return DUMMY_rgb_value;
+        return R;
     }
     rgb_value& Color::green()  {
-      return DUMMY_rgb_value;
+      return G;
     }
     rgb_value& Color::blue()  {
-      return DUMMY_rgb_value;
+      return B;
     }
 }
