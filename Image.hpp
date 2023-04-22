@@ -26,6 +26,7 @@ namespace prog
     void invert();
     void to_gray_scale();
     void replace(Color initial_color, Color final_color);
+    void fill(int x, int y, int w, int h, Color fill_color);
   };
 }
 #endif

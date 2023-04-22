@@ -56,4 +56,12 @@ namespace prog
       }
     }    
   }
+
+  void Image::fill(int x, int y, int w, int h, Color fill_color){
+    for (int row = y; row < (y + h); row++){
+      for (int col = x; col < (x + w); col++){
+        M[row][col] = fill_color;
+      }
+    }
+  }
 }

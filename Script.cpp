@@ -61,6 +61,10 @@ namespace prog {
                 replace();
                 continue;
             }
+            if (command == "fill"){
+                fill();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -100,5 +104,13 @@ namespace prog {
         Color initial_color, final_color;
         input >> initial_color >> final_color;
         image->replace(initial_color, final_color);
+    }
+
+    void Script::fill(){
+        // Fills a rectangle with a color
+        int x, y, w, h;
+        Color fill_color;
+        input >> x >> y >> w >> h >> fill_color;
+        image->fill(x, y, w, h, fill_color);
     }
 }
