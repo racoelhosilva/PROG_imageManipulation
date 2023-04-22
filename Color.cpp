@@ -28,9 +28,15 @@ namespace prog {
         return R;
     }
     rgb_value& Color::green()  {
-      return G;
+        return G;
     }
     rgb_value& Color::blue()  {
-      return B;
+        return B;
+    }
+
+    // Helper functions for image manipulation
+    void Color::to_grayscale(){
+        rgb_value gray = (R + G + B) / 3;
+        R = gray; G = gray; B = gray;
     }
 }
