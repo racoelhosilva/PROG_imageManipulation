@@ -24,6 +24,10 @@ namespace prog
     void open();
     void blank();
     void save();
+
+    // Image Manipulations
+    void invert();
+    void to_gray_scale();
   };
 }
 #endif

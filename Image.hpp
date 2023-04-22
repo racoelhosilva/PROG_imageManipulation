@@ -21,6 +21,10 @@ namespace prog
     int height() const;
     Color &at(int x, int y);
     const Color &at(int x, int y) const;
+
+    // Image Manipulation
+    void invert();
+    void to_gray_scale();
   };
 }
 #endif

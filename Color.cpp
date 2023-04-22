@@ -35,8 +35,13 @@ namespace prog {
     }
 
     // Helper functions for image manipulation
-    void Color::to_grayscale(){
+    void Color::invert(){
+        R = 255 - R; G = 255 - G; B = 255 - B;
+    }
+    void Color::to_gray_scale(){
         rgb_value gray = (R + G + B) / 3;
         R = gray; G = gray; B = gray;
     }
+
+
 }

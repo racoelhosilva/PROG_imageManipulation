@@ -25,8 +25,9 @@ namespace prog
       rgb_value blue() const;
       rgb_value& blue();
       // Helper functions for image manipulation
-      void to_grayscale();
-      
+      void invert();
+      void to_gray_scale();
+
   };
 }
 #endif

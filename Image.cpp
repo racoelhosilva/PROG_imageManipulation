@@ -30,4 +30,20 @@ namespace prog
     return M[y][x];
   }
 
+  // Image Manipulation
+  void Image::invert() {
+    for (int row = 0; row < H; row++){
+      for (int col = 0; col < W; col++){
+        (M[row][col]).invert();
+      }
+    }
+  }
+  
+  void Image::to_gray_scale(){
+    for (int row = 0; row < H; row++){
+      for (int col = 0; col < W; col++){
+        (M[row][col]).to_gray_scale();
+      }
+    }
+  }
 }

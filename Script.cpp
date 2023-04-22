@@ -49,6 +49,14 @@ namespace prog {
                 continue;
             } 
             // TODO ...
+            if (command == "invert") {
+                invert();
+                continue;
+            }
+            if (command == "to_gray_scale"){
+                to_gray_scale();
+                continue;
+            }
 
         }
     }
@@ -72,5 +80,15 @@ namespace prog {
         string filename;
         input >> filename;
         saveToPNG(filename, image);
+    }
+
+    void Script::invert() {
+        // Inverts the value of each pixel (255 - value)
+        image->invert();
+    }
+
+    void Script::to_gray_scale(){
+        // Grayscales each pixel of the image
+        image->to_gray_scale();
     }
 }
