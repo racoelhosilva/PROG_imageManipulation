@@ -94,5 +94,14 @@ namespace prog
       }
     }
   }
+
+  void Image::crop(int x, int y, Image* image_cropped){
+    for (int row = 0; row < image_cropped->H; row++){
+      for (int col = 0; col < image_cropped->W; col++){
+        (image_cropped->M)[row][col] = M[row + y][col + x];
+      }
+    }
+  }
+
 }
 

@@ -25,7 +25,7 @@ namespace prog
     void blank();
     void save();
 
-    // Image Manipulations
+    // Image Manipulations (Maintaining Size)
     void invert();
     void to_gray_scale();
     void replace();
@@ -33,6 +33,10 @@ namespace prog
     void h_mirror();
     void v_mirror();
     void add();
+
+    // Image Manipulations (Changing Size)
+    void crop();
+
   };
 }
 #endif

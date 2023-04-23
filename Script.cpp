@@ -77,6 +77,10 @@ namespace prog {
                 add();
                 continue;
             }
+            if (command == "crop"){
+                crop();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -149,4 +153,19 @@ namespace prog {
             image_copy = nullptr;
         }
     }
+
+    void Script::crop(){
+        // Crop the image
+        int x, y, w, h;
+        input >> x >> y >> w >> h;
+        Image *image_cropped = new Image(w, h);
+        image->crop(x, y, image_cropped);
+        if (image != nullptr) {
+            delete image;
+            image = image_cropped;
+            image_cropped = nullptr;
+        }
+    }
+
+
 }

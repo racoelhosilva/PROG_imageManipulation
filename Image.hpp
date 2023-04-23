@@ -22,7 +22,7 @@ namespace prog
     Color &at(int x, int y);
     const Color &at(int x, int y) const;
 
-    // Image Manipulation
+    // Image Manipulation (Maintain size)
     void invert();
     void to_gray_scale();
     void replace(Color initial_color, Color final_color);
@@ -30,6 +30,10 @@ namespace prog
     void h_mirror();
     void v_mirror();
     void add(Image* image_copy, Color neutral_color, int x, int y);
+
+    // Image Manipulation (Change size)
+    void crop(int x, int y, Image* image_cropped);
+
   };
 }
 #endif
