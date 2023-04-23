@@ -64,4 +64,35 @@ namespace prog
       }
     }
   }
+
+  void Image::h_mirror(){
+    for (int row = 0; row < H; row++){
+      for (int col = 0; col < (W / 2); col++){
+        Color temp = M[row][col];
+        M[row][col] = M[row][W - 1 - col];
+        M[row][W - 1 - col] = temp;
+      }
+    }
+  }
+
+  void Image::v_mirror(){
+    for (int row = 0; row < (H/ 2); row++){
+      for (int col = 0; col < W; col++){
+        Color temp = M[row][col];
+        M[row][col] = M[H - 1 - row][col];
+        M[H - 1 - row][col] = temp;
+      }
+    }
+  }
+
+  void Image::add(Image* image_copy, Color neutral_color, int x, int y){
+    for (int row = 0; row < image_copy->H; row++){
+      for (int col = 0; col < image_copy->W; col++){
+        if (!((image_copy->M)[row][col].is_equal(neutral_color))){
+          M[row + y][col + x] = (image_copy->M)[row][col];
+        }
+      }
+    }
+  }
 }
+

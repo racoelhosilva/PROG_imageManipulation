@@ -65,6 +65,18 @@ namespace prog {
                 fill();
                 continue;
             }
+            if (command == "h_mirror"){
+                h_mirror();
+                continue;
+            }
+            if (command == "v_mirror"){
+                v_mirror();
+                continue;
+            }
+            if (command == "add"){
+                add();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -112,5 +124,29 @@ namespace prog {
         Color fill_color;
         input >> x >> y >> w >> h >> fill_color;
         image->fill(x, y, w, h, fill_color);
+    }
+
+    void Script::h_mirror(){
+        // Mirrors the image horizontally
+        image->h_mirror();
+    }
+    void Script::v_mirror(){
+        // Mirrors the image vertically
+        image->v_mirror();
+    }
+
+    void Script::add(){
+        // Pastes image from filename on top of current image
+        string filename;
+        Image *image_copy;
+        input >> filename;
+        image_copy = loadFromPNG(filename);
+        Color neutral_color; int x, y;
+        input >> neutral_color >> x >> y;
+        image->add(image_copy, neutral_color, x, y);
+        if (image_copy != nullptr) {
+            delete image_copy;
+            image_copy = nullptr;
+        }
     }
 }

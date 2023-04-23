@@ -30,6 +30,9 @@ namespace prog
     void to_gray_scale();
     void replace();
     void fill();
+    void h_mirror();
+    void v_mirror();
+    void add();
   };
 }
 #endif

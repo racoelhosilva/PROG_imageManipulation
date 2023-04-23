@@ -27,6 +27,9 @@ namespace prog
     void to_gray_scale();
     void replace(Color initial_color, Color final_color);
     void fill(int x, int y, int w, int h, Color fill_color);
+    void h_mirror();
+    void v_mirror();
+    void add(Image* image_copy, Color neutral_color, int x, int y);
   };
 }
 #endif
