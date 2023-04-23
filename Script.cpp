@@ -81,6 +81,14 @@ namespace prog {
                 crop();
                 continue;
             }
+            if (command == "rotate_left"){
+                rotate_left();
+                continue;
+            }
+            if (command == "rotate_right"){
+                rotate_right();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -148,6 +156,7 @@ namespace prog {
         Color neutral_color; int x, y;
         input >> neutral_color >> x >> y;
         image->add(image_copy, neutral_color, x, y);
+
         if (image_copy != nullptr) {
             delete image_copy;
             image_copy = nullptr;
@@ -160,6 +169,7 @@ namespace prog {
         input >> x >> y >> w >> h;
         Image *image_cropped = new Image(w, h);
         image->crop(x, y, image_cropped);
+
         if (image != nullptr) {
             delete image;
             image = image_cropped;
@@ -167,5 +177,27 @@ namespace prog {
         }
     }
 
+    void Script::rotate_left(){
+        // Rotate the image 90 degrees to the left
+        Image *image_rotated = new Image(image->height(), image->width());
+        image->rotate_left(image_rotated);
 
+        if (image != nullptr) {
+            delete image;
+            image = image_rotated;
+            image_rotated = nullptr;
+        }
+    }
+
+    void Script::rotate_right(){
+        // Rotate the image 90 degrees to the right
+        Image *image_rotated = new Image(image->height(), image->width());
+        image->rotate_right(image_rotated);
+
+        if (image != nullptr) {
+            delete image;
+            image = image_rotated;
+            image_rotated = nullptr;
+        }
+    }
 }

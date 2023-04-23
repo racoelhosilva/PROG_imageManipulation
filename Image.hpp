@@ -33,7 +33,8 @@ namespace prog
 
     // Image Manipulation (Change size)
     void crop(int x, int y, Image* image_cropped);
-
+    void rotate_left(Image* image_rotated);
+    void rotate_right(Image* image_rotated);
   };
 }
 #endif

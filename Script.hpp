@@ -36,7 +36,8 @@ namespace prog
 
     // Image Manipulations (Changing Size)
     void crop();
-
+    void rotate_left();
+    void rotate_right();
   };
 }
 #endif

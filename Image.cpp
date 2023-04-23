@@ -103,5 +103,21 @@ namespace prog
     }
   }
 
+  void Image::rotate_left(Image* image_rotated){
+    for (int row = 0; row < image_rotated->H; row++){
+      for (int col = 0; col < image_rotated->W; col++){
+        (image_rotated->M)[row][col] = M[col][image_rotated->H - 1 - row];
+      }
+    }
+  }
+
+  void Image::rotate_right(Image* image_rotated){
+    for (int row = 0; row < image_rotated->H; row++){
+      for (int col = 0; col < image_rotated->W; col++){
+        (image_rotated->M)[row][col] = M[image_rotated->W - 1 - col][row];
+      }
+    }
+  }
+
 }
 
