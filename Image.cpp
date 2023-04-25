@@ -1,4 +1,6 @@
 #include "Image.hpp"
+#include <algorithm>
+#include <iostream>
 
 namespace prog
 {
@@ -119,5 +121,57 @@ namespace prog
     }
   }
 
+    void Image::median_filter(int n, Image* image_filtered){
+    int amp = (n - 1) / 2; 
+    for (int row = 0; row < H; row++){
+      for (int col = 0; col < W; col++){
+        // for every pixel, fix a square with n.n squares and center in the pixel
+        std::vector<Color> square;
+        for (int s_row = row - amp; s_row <= row + amp; s_row++){
+          for (int s_col = col - amp; s_col <= col + amp; s_col++){
+            bool check_vertical = (s_row >= 0) && (s_row < H);
+            bool check_horizontal = (s_col >= 0) && (s_col < W);
+            if (check_horizontal && check_vertical){
+              square.push_back(M[s_row][s_col]);
+              // square[0] = M[s_row][s_col];
+              continue;
+            }
+          }
+        }
+        (image_filtered->M)[row][col] = color_median(square);
+      }
+    }
+  }
+
+  // Should this helper function be defined *here* and as *private*
+  rgb_value median(std::vector<rgb_value> values){
+    std::sort(values.begin(), values.end());
+    rgb_value result;
+    int vectorSize = values.size();
+    if (vectorSize % 2 == 1){
+        result = values[(vectorSize/2)];
+    }
+    else {
+        result = (values[(vectorSize + 1) / 2] + values[(vectorSize - 1) / 2]) / 2;
+    }
+    return result;
+  }
+  
+
+  Color color_median(std::vector<Color> square){
+    std::vector<rgb_value> reds(square.size()), greens(square.size()), blues(square.size());
+    for (int v_idx = 0; v_idx < (int)square.size(); v_idx++){
+      reds[v_idx] = square[v_idx].red();
+      greens[v_idx] = square[v_idx].green();
+      blues[v_idx] = square[v_idx].blue();
+    }
+    rgb_value mr, mg, mb;
+    mr = median(reds);
+    mg = median(greens);
+    mb = median(blues);
+    return {mr, mg, mb};
+  }
+
+  
 }
 

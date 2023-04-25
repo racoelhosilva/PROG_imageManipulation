@@ -89,6 +89,10 @@ namespace prog {
                 rotate_right();
                 continue;
             }
+            if (command == "median_filter"){
+                median_filter();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -198,6 +202,19 @@ namespace prog {
             delete image;
             image = image_rotated;
             image_rotated = nullptr;
+        }
+    }
+
+    void Script::median_filter(){
+        // Apply a median filter of n
+        Image *image_filtered = new Image(image->width(), image->height());
+        int n;
+        input >> n;
+        image->median_filter(n, image_filtered);
+        if (image != nullptr) {
+            delete image;
+            image = image_filtered;
+            image_filtered = nullptr;
         }
     }
 }

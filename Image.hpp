@@ -2,6 +2,7 @@
 #define __prog_Image_hpp__
 #include "Color.hpp"
 #include <vector>
+#include <algorithm>
 
 namespace prog
 {
@@ -35,6 +36,12 @@ namespace prog
     void crop(int x, int y, Image* image_cropped);
     void rotate_left(Image* image_rotated);
     void rotate_right(Image* image_rotated);
+
+    // Advanced Functionality
+    void median_filter(int n, Image* image_filtered);
   };
+
+  Color color_median(std::vector<Color> vec);
+
 }
 #endif

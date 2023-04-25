@@ -38,6 +38,9 @@ namespace prog
     void crop();
     void rotate_left();
     void rotate_right();
+
+    // Advanced Functionality
+    void median_filter();
   };
 }
 #endif
