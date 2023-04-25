@@ -41,7 +41,8 @@ namespace prog
     void median_filter(int n, Image* image_filtered);
   };
 
+  // Helper functions for the median_filter
   Color color_median(std::vector<Color> vec);
-
+  rgb_value median(std::vector<rgb_value> values);
 }
 #endif

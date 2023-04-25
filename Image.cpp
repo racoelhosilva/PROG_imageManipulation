@@ -144,6 +144,10 @@ namespace prog
   }
 
   // Should this helper function be defined *here* and as *private*
+
+  // Helper functions for the median filter
+
+  // Calculate the median of a vector of rgb_values
   rgb_value median(std::vector<rgb_value> values){
     std::sort(values.begin(), values.end());
     rgb_value result;
@@ -157,7 +161,8 @@ namespace prog
     return result;
   }
   
-
+  // Process the median of colors by splitting colors into channels and 
+  // calculating the median of each channel
   Color color_median(std::vector<Color> square){
     std::vector<rgb_value> reds(square.size()), greens(square.size()), blues(square.size());
     for (int v_idx = 0; v_idx < (int)square.size(); v_idx++){
