@@ -93,6 +93,14 @@ namespace prog {
                 median_filter();
                 continue;
             }
+            if (command == "xpm2_open"){
+                xpm2_open();
+                continue;
+            }
+            if (command == "xpm2_save"){
+                xpm2_save();
+                continue;
+            }
         }
     }
     void Script::open() {
@@ -216,5 +224,20 @@ namespace prog {
             image = image_filtered;
             image_filtered = nullptr;
         }
+    }
+
+    void Script::xpm2_open(){
+        // Open XPM2 files to an image object
+        clear_image_if_any();
+        string inputFilename;
+        input >> inputFilename;
+        image = loadFromXPM2(inputFilename);
+    }
+    
+    void Script::xpm2_save(){
+        // Save image object into XPM2 file
+        string outputFilename;
+        input >> outputFilename;
+        saveToXPM2(outputFilename, image);
     }
 }

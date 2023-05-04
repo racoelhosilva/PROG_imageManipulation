@@ -41,6 +41,9 @@ namespace prog
 
     // Advanced Functionality
     void median_filter();
+
+    void xpm2_open();
+    void xpm2_save();
   };
 }
 #endif
