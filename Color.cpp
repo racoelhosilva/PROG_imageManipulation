@@ -1,4 +1,6 @@
 #include "Color.hpp"
+#include <string>
+#include <cctype>
 
 namespace prog {
     // Constructors

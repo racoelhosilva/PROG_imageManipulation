@@ -1,6 +1,8 @@
 #ifndef __prog_Color_hpp__
 #define __prog_Color_hpp__
 
+#include <string>
+
 namespace prog
 {
   typedef unsigned char rgb_value;
@@ -29,5 +31,6 @@ namespace prog
       void to_gray_scale();
       bool is_equal(Color& arg_color);
   };
+
 }
 #endif
