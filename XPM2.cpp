@@ -2,30 +2,23 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <iostream>
 #include <map>
 #include <vector>
-#include <cctype>
 
 namespace prog {
     Image* loadFromXPM2(const std::string& file) {
-        // Load the dimensions of the image 
-        // Create an image with that size
-
         std::ifstream fileReader(file);
         std::string generalInput;
-        // Skip the header
         fileReader >> generalInput; fileReader >> generalInput;
-        // Load the dimensions
+
         int width, height;
         fileReader >> width; fileReader >> height;
         Image* resultImage = new Image(width, height);
 
-        // Load the nº of colors
         int numberOfColors;
         fileReader >> numberOfColors;
         fileReader >> generalInput;
-        // Loop through the index appending every correspondence to a map symbol to color
+
         std::map<char, Color> indexSymbolColor;
         for (int _ = 0; _ < numberOfColors; _++){
             char symbol; 
@@ -40,14 +33,10 @@ namespace prog {
 
             Color currentColor = Color(hex_to_dec(red_hex), hex_to_dec(green_hex),hex_to_dec(blue_hex));
             indexSymbolColor.insert({symbol, currentColor});
-
         }
 
-        // Loop through the nº of lines (dimension)
-        // For every line, create a vector of colors
-        // For every symbol read, create a color
         std::getline (fileReader, generalInput);
-        // Push back the vector into the Image
+
         for (int lineIndex = 0; lineIndex < height; lineIndex++){
             std::string currentLine;
             std::getline (fileReader, currentLine);
@@ -81,16 +70,19 @@ namespace prog {
 
 //===========================================================//
 
-
     void saveToXPM2(const std::string& file, const Image* image) {
-        // Generate a map of color to symbol
+
         std::map<Color, char> indexColorSymbol;
-        char symbols[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'};
+        char symbols[64] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
         int symbolsCounter = 0;
 
         for (int row = 0; row < image->height(); row++){
             for (int col = 0; col < image->width(); col++){
                 Color currentColor = image->at(col, row);
+                if (symbolsCounter >= 64)  { 
+                    // Too many colors to process (Base64 assumed)
+                    break;
+                }
                 if (!(indexColorSymbol.count(currentColor))){
                     char symbol = symbols[symbolsCounter];
                     indexColorSymbol.insert({currentColor, symbol});
@@ -98,13 +90,11 @@ namespace prog {
                 }
             }
         }
-
-        // Create the header with the dimensions and nº of colors 
+ 
         std::ofstream fileWriter(file);
         fileWriter << "! XPM2" << '\n';
         fileWriter << image->width() << ' ' << image->height() << ' ' << symbolsCounter << " 1" << '\n';
 
-        // Create the index for the colors
         for (auto& indexItr : indexColorSymbol){
             std::string red_hex = dec_to_hex(indexItr.first.red());
             std::string green_hex = dec_to_hex(indexItr.first.green());
@@ -112,12 +102,7 @@ namespace prog {
 
             fileWriter << indexItr.second << " c #" << red_hex << green_hex << blue_hex << '\n';
         }
-        // Loop through each line
-            // Loop through each color
-                // Add the symbol corresp. to a string
-            // Add the whole string to the file
-            // Go to the next line
-        
+
         for (int row = 0; row < image->height(); row++){
             for (int col = 0; col < image->width(); col++){
                 Color currentColor = image->at(col, row);
@@ -126,26 +111,19 @@ namespace prog {
             }
             fileWriter << '\n';
         }
-        // This can be improved if we append strings over and over and only send to the file in the end
     }
 
     std::string dec_to_hex(rgb_value c){
         std::string result = "";
+
         rgb_value first = c / 16;
-        if (first >= 10){
-            result.push_back(char(first - 10 + 'A'));
-        }
-        else {
-            result.push_back(char(first + '0'));
-        }
+        if (first >= 10){ result.push_back(char(first - 10 + 'A')); }
+        else { result.push_back(char(first + '0')); }
         
         rgb_value second = c % 16;
-        if (second >= 10){
-            result.push_back(char(second - 10 + 'A'));
-        }
-        else {
-            result.push_back(char(second + '0'));
-        }
+        if (second >= 10){ result.push_back(char(second - 10 + 'A')); }
+        else { result.push_back(char(second + '0')); }
+
         return result;
     }
 
