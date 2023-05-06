@@ -6,7 +6,9 @@
     ██╔═══╝ ██╔══██╗██║   ██║██║   ██║
     ██║     ██║  ██║╚██████╔╝╚██████╔╝
     ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ 
-                                  
+
+Class:
+    - FEUP-L.EIC009-2022/2023-2S (Programação)
 Group:
     - 13.10
 Students:
@@ -112,7 +114,6 @@ namespace prog {
         return result;
     }
 
-//===========================================================//
 
     void saveToXPM2(const std::string& file, const Image* image) {
         // Stores an Image object (passed as a pointer) into an XPM2 file (with filename <file>)

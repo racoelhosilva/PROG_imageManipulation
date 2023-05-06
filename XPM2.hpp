@@ -6,7 +6,9 @@
     ██╔═══╝ ██╔══██╗██║   ██║██║   ██║
     ██║     ██║  ██║╚██████╔╝╚██████╔╝
     ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ 
-                                  
+
+Class:
+    - FEUP-L.EIC009-2022/2023-2S (Programação)
 Group:
     - 13.10
 Students:
@@ -16,6 +18,7 @@ Students:
 
 Tip: the implementation of the functions on the .cpp files are in the same order as they appear defined in the corresponding .hpp header file
 */
+
 #ifndef __prog_XPM2_hpp__
 #define __prog_XPM2_hpp__
 
@@ -36,7 +39,7 @@ namespace prog {
     // Save an image into XPM2 file
     void saveToXPM2(const std::string& file, const Image* img);
     // Helper functions for saveToXPM2
-    bool operator<(const Color& c1, const Color& c2);
     std::string dec_to_hex(rgb_value c);
+    bool operator<(const Color& c1, const Color& c2);
 }
 #endif
