@@ -1,0 +1,10 @@
+SUBMISSION INFORMATION
+======================
+
+Group identifier: 13.10
+
+Summary of implemented features:
+- Implementation of Color fields, all initial member functions and  some additional helper functions (invert, to_gray_scale and is_equal)
+- Implementation of Image fields, all initial member functions, all image manipulation functions and some additional helper functions (color_median and median)
+- Implementation of Script member functions for all Image manipulations
+- Implementation of XPM2 files (both load and save)
