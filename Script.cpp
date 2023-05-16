@@ -172,7 +172,7 @@ namespace prog {
     }
 
     void Script::fill(){
-        // Fills a rectangle in the Image with a Color
+        // Fills a rectangle on top of the current Image with a Color
         
         int x, y, w, h;
         Color fill_color;

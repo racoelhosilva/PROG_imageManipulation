@@ -38,9 +38,9 @@ namespace prog
   private:
     // Private parameters
 
-    // Current image.
+    // Current image
     Image *image;
-    // Input stream for reading script commands.
+    // Input stream for reading script commands
     std::ifstream input;
   private:
     // Private functions
