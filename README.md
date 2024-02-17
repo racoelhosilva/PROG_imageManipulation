@@ -58,6 +58,6 @@ After executing the commands, the images can be stored again both in PNG or XPM2
 
 ---
 
+> Class: 1LEIC13 Group: 10  
+> Final Grade: 20.0  
 > Created in April 2023 for PROG (Programação) [FEUP-L.EIC009]  
-> Class: 1LEIC13  Group: 10  
-> Final Grade: 20.0
