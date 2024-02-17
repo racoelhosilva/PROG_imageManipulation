@@ -1,6 +1,16 @@
-# PROG - Image Manipulation
+<h1 align="center">PROG - Image Manipulation</h1>
 
 > Command-based image manipulation tool for 8-bit RGB images in PNG and XPM2 format.
+
+<h2>Table of Contents</h2>
+
+- [Usage](#usage)
+- [Commands/Features](#commandsfeatures)
+    - [Basic Operations](#basic-operations)
+    - [Image Manipulation (Maintaining Size)](#image-manipulation-maintaining-size)
+    - [Image Manipulation (Changing Size)](#image-manipulation-changing-size)
+    - [Advanced Functionality](#advanced-functionality)
+
 
 ## Usage
 
@@ -8,7 +18,7 @@ The program runs based on the scripts passed that are written in the scripts dir
 The images can be loaded either from the input folder (in PNG format or XPM2) or created from scratch as blank.  
 After executing the commands, the images can be stored again both in PNG or XPM2.  
 
-## Commands
+## Commands/Features
 
 #### Basic Operations
 
@@ -46,4 +56,8 @@ After executing the commands, the images can be stored again both in PNG or XPM2
 | `xpm2_open <filepath>` | Open XPM2 files to an image object
 | `xpm2_save <filepath>` | Save image object into XPM2 file
 
+---
+
+> Created in April 2023 for PROG (Programação) [FEUP-L.EIC009]  
+> Class: 1LEIC13  Group: 10  
 > Final Grade: 20.0
