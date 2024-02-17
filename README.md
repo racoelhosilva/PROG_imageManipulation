@@ -1,6 +1,8 @@
 <h1 align="center">PROG - Image Manipulation</h1>
 
+><p align="center">
 > Command-based image manipulation tool for 8-bit RGB images in PNG and XPM2 format.
+></p>
 
 <h2>Table of Contents</h2>
 
